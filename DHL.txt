@@ -1,0 +1,25 @@
+09FE409E-8E6D-4D5C-BF43-B721C0107914
+
+SELECT ID, LoggedOn FROM dbo.ALKMaps_USAGE_LOG a WHERE a.APIKey = '09FE409E-8E6D-4D5C-BF43-B721C0107914' and a.LoggedOn='2019-06-02 10:22:49.707'
+
+ID = 10011498162
+LoggedOn = 2019-06-02 10:22:49.707
+
+Can you locate this call this request they are referring to on 2019-06-03 10:22:49 (utc + 2h)) and before. 
+
+SELECT a.OperationName, b.UrlQueryString from dbo.ALKMaps_USAGE_LOG a inner join dbo.ALKMaps_USAGE_LOG_URL b on b.ID = a.id WHERE a.APIKey = '09FE409E-8E6D-4D5C-BF43-B721C0107914' 
+
+
+10011498162	2019-06-02 10:22:49.707	Locations	09FE409E-8E6D-4D5C-BF43-B721C0107914	165.72.200.13	0	16	geoworker.pcmwcf.alk.com/SOAP_v1.0_32.5.EU_p1		0	                                                  		1	1	0	0	0	0	0	200
+
+SELECT * from dbo.Enterprise_POSTLog where REQUEST_TIME between '2019-06-02' and '2019-06-03';
+
+
+-------------------------------------------------------------------------------------------
+
+ID	LoggedOn	OperationName	APIKey	IP	InitialRequest	ResponseTime	Server	FOServer	HotFO	ErrorCode	ErrorTxt	Transactions	Stops	CanPosts	SPLCs	Navteq	DrawTraffic	RouteTraffic	HttpCode
+10068790344	2019-06-03 10:22:49.557	GetRteMatrix	09FE409E-8E6D-4D5C-BF43-B721C0107914	165.72.200.13	0	267	hosworker.pcmwcf.alk.com/SOAP_v1.0_32.5.EU_p1		0	                                                  		5	6	0	0	0	0	0	200
+
+
+ID	LoggedOn	OperationName	APIKey	IP	InitialRequest	ResponseTime	Server	FOServer	HotFO	ErrorCode	ErrorTxt	Transactions	Stops	CanPosts	SPLCs	Navteq	DrawTraffic	RouteTraffic	HttpCode	ID	LoggedOn	UrlQueryString
+10011498162	2019-06-02 10:22:49.707	Locations	09FE409E-8E6D-4D5C-BF43-B721C0107914	165.72.200.13	0	16	geoworker.pcmwcf.alk.com/SOAP_v1.0_32.5.EU_p1		0	                                                  		1	1	0	0	0	0	0	200	10011498162	2019-06-02 10:22:49.707	locations?street=lillt%c3%a4ktv%c3%a4gen%203&postcode=18275&region=3&state=sw&dataset=pcm_eu
